@@ -102,6 +102,7 @@ class CanvasListener implements MouseListener, MouseMotionListener, KeyListener,
 
     @Override
     public void mouseEntered(MouseEvent e) {
+        canvas.requestFocus(); //ask for focus if mouse enteres canvas space
         if (tool != null) {
             tool.mouseEntered(canvas, e);
         }
