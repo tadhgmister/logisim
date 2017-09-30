@@ -80,16 +80,14 @@ class ToolbarButton extends JComponent implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
         if (item != null && item.isSelectable()) {
-            toolbar.setPressed(this);
+            // select item as soon as it's pressed down on
+            // this allows one to drag item from toolbar onto canvas
+            toolbar.getToolbarModel().itemSelected(item); 
         }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if (toolbar.getPressed() == this) {
-            toolbar.getToolbarModel().itemSelected(item);
-            toolbar.setPressed(null);
-        }
     }
 
     @Override
